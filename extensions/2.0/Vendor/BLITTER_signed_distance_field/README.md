@@ -24,12 +24,32 @@ This extension introduces the ability to include those voxel-like simplified rep
 Given that the PNG and JPEG formats are not suitable for single channel 3d textures, it is recommended to use extensions like KHR_texture_basisu or MSFT_texture_dds to store
 the distance fields data.
 
-The usage of formats like ktx2 and dds will allow easy support for mip maps (to have various levels of simplified representations)
+The usage of formats like ktx2 and dds will allow easy support for mip maps too (to have various levels of simplified representations)
 
 ### Minimal Example:
 
 ```json
-"meshes": [
+{
+    ...
+    "extensionsUsed": [
+        "BLITTER_signed_distance_field",
+        "KHR_texture_basisu"
+    ],
+    "textures": [
+        {
+            "extensions": {
+                "KHR_texture_basisu": {
+                    "source": 0
+                }
+            }
+        }
+    ],
+    "images": [
+        {
+            "uri": "distance_fields.ktx2"
+        }
+    ],
+    "meshes": [
     {
         "primitives": [
             {
@@ -42,13 +62,14 @@ The usage of formats like ktx2 and dds will allow easy support for mip maps (to 
                 "mode": 4,
                 "extensions": {
                     "BLITTER_signed_distance_field": {
-                        "texture": 17
+                        "texture": 0
                     }
                 }
             }
         ]
     }
 ]
+}
 ```
 
 ## glTF Schema Updates
