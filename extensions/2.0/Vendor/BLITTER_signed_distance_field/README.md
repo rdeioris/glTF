@@ -50,32 +50,31 @@ The usage of formats like ktx2 and dds will allow easy support for mip maps too 
         }
     ],
     "meshes": [
-    {
-        "primitives": [
-            {
-                "attributes": {
-                    "POSITION": 0,
-                    "NORMAL": 1,
-                },
-                "indices": 2,
-                "material": 0,
-                "mode": 4,
-                "extensions": {
-                    "BLITTER_signed_distance_field": {
-                        "texture": 0
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                    },
+                    "indices": 2,
+                    "material": 0,
+                    "mode": 4,
+                    "extensions": {
+                        "BLITTER_signed_distance_field": {
+                            "texture": 0
+                        }
                     }
                 }
-            }
-        ]
-    }
-]
+            ]
+        }
+    ]
 }
 ```
 
 ## glTF Schema Updates
 
 This extension consists of a new `"BLITTER_signed_distance_field"` string which can be added to the glTF's `"extensionsUsed"` array and because it is optional, it does not need to be added to the `"extensionsRequired"` array.
-
 
 ### JSON Schema
 
